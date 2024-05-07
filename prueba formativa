@@ -1,0 +1,130 @@
+#Prueba_formativa
+
+print("****BIENVENIDO A DELIVERY DE SUSHI****")
+print("1.Pikachu Roll            $4.500")
+print("2.Otaku Roll              $5.000")
+print("3.Pulpo venenoso Roll     $5.200")
+print("4.Anguila eléctrica Roll  $4.800")
+print("5.Ver Pedido")
+print("6.Finalizar compra")
+print("7.Salir")
+print("**************************************")
+
+contproducto=0
+contpikachu=0
+contotaku=0
+contpulpo=0
+contanguila=0
+
+valorpikachu=0
+valorotaku=0
+valorpulpo=0
+valoranguila=0
+valortotal=0
+dscto=0
+boleta=0
+
+while True:
+    
+    try:
+        
+        opc=int(input("Seleccione el roll que desea comprar o la opcion requerida: "))
+                
+        if opc==1:
+            contpikachu=contpikachu+1
+            valorpikachu=contpikachu*4500
+            
+        
+        elif opc==2:
+            contotaku=contotaku+1
+            valorotaku=contotaku*5000
+        
+        elif opc==3:
+            contpulpo=contpulpo+1
+            valorpulpo=contpulpo*5200
+        
+        elif opc==4:
+            contanguila=contanguila+1
+            valoranguila=contanguila*4800
+        
+        elif opc==5:
+            print("*******Usted lleva*******")
+            print(contpikachu," Pikachu roll")
+            print(contotaku," Otaku roll")
+            print(contpulpo," Pulpo venenoso roll")
+            print(contanguila," Anguila electrica roll")
+        
+        
+        elif opc==6:
+            
+            valortotal=valorpikachu+valorotaku+valorpulpo+valoranguila
+            dscto=valortotal*0.10
+            boleta=valortotal-dscto
+            contproducto=contpikachu+contotaku+contpulpo+contanguila
+            
+            while True:
+                
+                dsc=input("Posee código de descuento? Responda Si o No. Presione x para salir ").lower()
+                
+                if dsc=="si":
+                    cod=input("Ingrese código de descuento: ").lower()
+                                
+                    if cod=="soyotaku":
+                        print("***************************************")
+                        print("Total Productos: ",contproducto)
+                        print("Pikachu Roll: ", contpikachu)
+                        print("Otaku Roll: ",   contotaku)
+                        print("Pulpo venenoso Roll: ", contpulpo)
+                        print("Anguila electrica Roll: ", contanguila)
+                        print("***************************************")
+                        print("Subtotal por pagar: ",valortotal)
+                        print("Descuento por código: ",dscto)
+                        print("TOTAL: ",boleta)
+                        
+                        resp=input("**¿DESEA SALIR DEL PROGRAMA? SI/NO** ").lower()
+                        
+                        if resp=="si":
+                            print("Saliendo...")
+                            break
+                        
+                    
+                        elif resp=="no":
+                            print("Debe salir para terminar su compra")
+                            break
+                    else:
+                        print("**Ingrese un código válido**")
+            
+                elif dsc=="no":
+                    print("***************************************")
+                    print("Total Productos: ",contproducto)
+                    print("Pikachu Roll: ", contpikachu)
+                    print("Otaku Roll: ",   contotaku)
+                    print("Pulpo venenoso Roll: ", contpulpo)
+                    print("Anguila electrica Roll: ", contanguila)
+                    print("***************************************")
+                    print("Subtotal por pagar: ",valortotal)
+                    print("Descuento por código: $0")
+                    print("TOTAL: ",valortotal)
+                    
+                    resp=input("**¿DESEA SALIR DEL PROGRAMA? SI/NO** ").lower()
+                    
+                    if resp=="si":
+                        print("Saliendo...")
+                        break
+                    
+                    elif resp=="no":
+                        print("Debe salir para terminar su compra")
+                        break
+                
+                elif dsc=="x":
+                    print("Saliendo...")
+                    break
+                
+                
+                
+        elif opc==7:
+            print("Hasta Pronto")
+            break
+            
+    except:
+        print("*Ingresar un dato válido*")
